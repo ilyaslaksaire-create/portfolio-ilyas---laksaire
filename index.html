@@ -1994,7 +1994,7 @@
       }
     }
       /* Floutage visuel des coordonnées personnelles dans Contact. */     #contact .contact-data a[href^="mailto:"] strong,     #contact .contact-data a[href^="tel:"] strong {       filter: blur(6px);       user-select: none;     }   </style>
-</head>
+<style>/* Accès Contact permanent, indépendant du menu mobile. */ .main-nav a[href="#contact"] { display: none; } .contact-floating { position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); z-index: 1100; border-radius: 999px; } .contact-floating:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; } @media (max-width: 600px) { .contact-floating { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); min-height: 48px; padding-inline: 20px; } }</style></head>
 
 <body>
   <div class="ambient ambient-one" aria-hidden="true"></div>
@@ -2668,5 +2668,5 @@
         `mailto:laksaire.ilyas@gmail.com?subject=${subject}&body=${body}`;
     });
   </script>
-</body>
+<a href="#contact" class="button button-primary contact-floating" aria-label="Accéder à la section Contact">Contact <span aria-hidden="true">↗</span></a></body>
 </html>
