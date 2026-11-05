@@ -296,6 +296,27 @@
       padding: 125px 0 40px;
     }
 
+    .watch-intro, .watch-next { display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; padding: 30px; border: 1px solid var(--border); border-radius: 22px; background: linear-gradient(120deg, rgba(97,242,176,.07), rgba(42,215,199,.02)); }
+    .watch-intro h3, .watch-card h3, .watch-method h3, .watch-next h3 { margin: 12px 0; font-size: 1.35rem; line-height: 1.35; }
+    .watch-intro p, .watch-card p, .watch-method p, .watch-next p { color: var(--muted); line-height: 1.8; }
+    .watch-status { padding-left: 26px; border-left: 1px solid var(--border); }
+    .watch-status strong { display: block; margin: 14px 0; color: var(--accent); }
+    .watch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 24px 0; }
+    .watch-card { padding: 26px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); }
+    .watch-card a { display: inline-block; color: var(--accent); margin-top: 18px; text-decoration: underline; text-underline-offset: 4px; }
+    .watch-method { padding: 32px; border: 1px solid var(--border); border-radius: 22px; }
+    .watch-method-heading { max-width: 760px; }
+    .watch-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; padding-left: 24px; margin: 30px 0; }
+    .watch-steps li { padding-left: 8px; }
+    .watch-steps li::marker { color: var(--accent); font-family: var(--mono); }
+    .watch-next { margin-top: 24px; align-items: center; }
+    .watch-date { color: var(--muted); font-family: var(--mono); font-size: .8rem; }
+    .main-nav .nav-link[href="#veille"]::before { content: "05"; }
+    .main-nav .nav-link[href="#contact"]::before { content: "06"; }
+    #veille { scroll-margin-top: 100px; }
+    @media (max-width: 1030px) { .main-nav { gap: 20px; } }
+    @media (max-width: 780px) { .watch-grid, .watch-intro, .watch-next, .watch-steps { grid-template-columns: 1fr; } .watch-status { padding: 22px 0 0; border-left: 0; border-top: 1px solid var(--border); } .watch-intro, .watch-method, .watch-next { padding: 24px; } }
+
     .section-heading {
       display: grid;
       max-width: 830px;
@@ -2019,6 +2040,7 @@
       <a class="nav-link" href="#ecole">École</a>
       <a class="nav-link" href="#entreprise">Entreprise</a>
       <a class="nav-link" href="#projets">Projets</a>
+      <a class="nav-link" href="#veille">Veille</a>
       <a class="nav-link" href="#contact">Contact</a>
     </nav>
   </header>
@@ -2494,12 +2516,43 @@
       </div>
     </section>
 
+    <!-- VEILLE TECHNOLOGIQUE -->
+    <section id="veille" class="content-section">
+      <div class="page-shell">
+        <div class="section-heading reveal">
+          <p class="section-index">04 · VEILLE TECHNOLOGIQUE</p>
+          <h2>Passkeys &amp; authentification</h2>
+          <p>Comment les passkeys renforcent-elles la sécurité des comptes, et quelles précautions faut-il prendre pour les déployer ? Un sujet au croisement des systèmes, de la cybersécurité et du support utilisateur.</p>
+        </div>
+        <div class="watch-intro reveal">
+          <div><p class="micro-label">Mon objectif en BTS SIO SISR</p><h3>Comprendre, comparer, puis tester.</h3><p>Cette veille vise à comprendre l’authentification sans mot de passe et ses conséquences pour l’administration des comptes : compatibilité, accompagnement des utilisateurs et récupération d’accès.</p></div>
+          <div class="watch-status"><span class="micro-label">Démarche en préparation</span><strong>Feedly + analyse personnelle</strong><p>Sources sélectionnées. Le dossier Feedly reste à configurer ; aucun flux automatique vers ce portfolio n’est activé.</p></div>
+        </div>
+        <div class="watch-grid">
+          <article class="watch-card reveal"><span class="micro-label">01 · Comprendre</span><h3>Une paire de clés</h3><p>Une passkey repose sur une clé publique enregistrée auprès du service et une clé privée gérée par un authentificateur. L’utilisateur autorise la connexion avec le déverrouillage de son appareil, par exemple un code PIN ou la biométrie.</p><a href="https://www.passkeycentral.org/introduction-to-passkeys/how-passkeys-work" target="_blank" rel="noopener noreferrer">Comprendre avec FIDO / Passkey Central ↗</a></article>
+          <article class="watch-card reveal"><span class="micro-label">02 · Sécuriser</span><h3>Résister au phishing</h3><p>La passkey est liée au site ou à l’application concernés. Un faux domaine ne peut donc pas l’utiliser comme un mot de passe saisi sur une page frauduleuse. Les autres moyens de connexion et de récupération restent à examiner.</p><a href="https://developers.google.com/identity/passkeys" target="_blank" rel="noopener noreferrer">Documentation Google ↗</a></article>
+          <article class="watch-card reveal"><span class="micro-label">03 · Administrer</span><h3>Prévoir la perte d’un appareil</h3><p>Il faut distinguer les passkeys synchronisées de celles liées à un appareil ou à une clé matérielle. Avant un déploiement, la récupération du compte et la révocation des accès doivent être prévues.</p><a href="https://learn.microsoft.com/fr-fr/entra/identity/authentication/concept-authentication-passwordless" target="_blank" rel="noopener noreferrer">Documentation Microsoft Entra ↗</a></article>
+        </div>
+        <div class="watch-method reveal">
+          <div class="watch-method-heading"><p class="micro-label">Organisation de ma veille</p><h3>Collecter avec Feedly, sélectionner chaque semaine.</h3><p>Une veille technologique consiste à suivre des sources fiables, retenir les évolutions utiles et expliquer leurs conséquences. Voici la méthode prévue pour ce sujet.</p></div>
+          <ol class="watch-steps">
+            <li><strong>Configurer les sources</strong><p>Créer dans Feedly un dossier « Passkeys &amp; authentification ». Rechercher les publications de FIDO Alliance, du Google Security Blog et du Microsoft Security Blog, puis suivre les flux proposés. Consulter aussi les documentations ci-dessus.</p></li>
+            <li><strong>Collecter les nouveautés</strong><p>Feedly regroupe les nouveaux contenus des flux suivis. Mots-clés de tri : passkey, FIDO2, WebAuthn, phishing, MFA et récupération de compte.</p></li>
+            <li><strong>Vérifier et analyser</strong><p>Prévoir 20 à 30 minutes par semaine pour choisir un contenu pertinent, vérifier sa date et recouper les annonces. Distinguer les avantages annoncés, les limites et les effets pour un administrateur SISR.</p></li>
+            <li><strong>Enrichir le portfolio</strong><p>Pour chaque synthèse : titre, auteur, lien, date de publication et de consultation, résumé, analyse personnelle et application possible. La publication reste manuelle après relecture.</p></li>
+          </ol>
+          <a class="button button-secondary" href="https://docs.feedly.com/article/806-how-to-follow-sources" target="_blank" rel="noopener noreferrer">Configurer les sources dans Feedly ↗</a>
+        </div>
+        <article class="watch-next reveal"><div><p class="micro-label">Prochaine mise en pratique · à réaliser</p><h3>Tester une passkey sur un compte de test.</h3><p>Documenter la création, la connexion et la suppression de la passkey ; vérifier les options en cas de perte de l’appareil. Ajouter ensuite des captures anonymisées et un retour d’expérience. Aucun test pratique n’est encore présenté ici.</p></div><span class="watch-date">Rubrique créée le <time datetime="2026-11-05">5 novembre 2026</time></span></article>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="content-section">
       <div class="page-shell">
         <div class="contact-panel reveal">
           <div class="contact-copy">
-            <p class="section-index">04 · CONTACT</p>
+            <p class="section-index">05 · CONTACT</p>
             <h2>Une question ou un projet à partager ?</h2>
             <p>
               Vous pouvez me contacter par e-mail ou par téléphone,
